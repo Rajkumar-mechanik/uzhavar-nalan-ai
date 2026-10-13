@@ -31,7 +31,7 @@ uzhavar-nalan-ai/
 
 ## 2. Prerequisites
 
-- Python **3.10 – 3.12**
+- Python **3.10 – 3.14**
 - An OpenAI API key and a LangSmith API key (free tier at https://smith.langchain.com)
 - ~2 GB free disk space (the embedding model is downloaded once, ~1.1 GB)
 
@@ -128,10 +128,3 @@ Open https://smith.langchain.com → project **uzhavar-nalan-ai**. Every questio
 | First run is slow | The embedding model is downloading once. For a lighter model set `EMBEDDING_MODEL=intfloat/multilingual-e5-small` and re-run `ingest.py`. |
 | `faiss-cpu` install fails | Use Python 3.10–3.12 and upgrade pip. |
 | No traces in LangSmith | Check `LANGSMITH_TRACING=true` and the API key in `.env`, then restart Streamlit. |
-
-## Demo tips for judges
-
-1. Ask the same question in Tamil, then in English — show it answers from both Tamil and English documents.
-2. Point at the source citation under the answer.
-3. Ask something off-topic — show it refuses to make things up.
-4. Click 👍/👎 and show the trace + feedback live in LangSmith.
