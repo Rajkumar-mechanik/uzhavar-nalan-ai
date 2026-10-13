@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700;800&family=Noto+Sans:wght@400;600;700&display=swap');
+
+:root {
+    --green-900: #174d27;
+    --green-700: #1f6b35;
+    --green-500: #2e8b47;
+    --green-100: #e5f2e0;
+    --green-50:  #f1f8ee;
+    --cream:     #fbf8ef;
+    --gold-100:  #f6e9c9;
+    --gold-500:  #c9a24a;
+    --ink:       #1d2a1f;
+    --muted:     #4d5b50;
+}
+
+html, body, [class*="css"], .stMarkdown, button, input, textarea {
+    font-family: 'Noto Sans Tamil', 'Noto Sans', sans-serif !important;
+}
+
+/* ---------- page chrome ---------- */
+header[data-testid="stHeader"], #MainMenu, footer, [data-testid="stToolbar"] { display: none !important; }
+.block-container { padding: 0 0 56px 0 !important; max-width: 100% !important; }
+.stApp { background-size: cover; background-attachment: fixed; background-position: center; }
+
+/* ---------- top bar ---------- */
+.st-key-topbar {
+    background: linear-gradient(90deg, var(--green-900), var(--green-700));
+    padding: 14px 36px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.25);
+}
+.brand { display: flex; align-items: center; gap: 16px; }
+.brand-logo {
+    width: 76px; height: 76px; border-radius: 50%; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; border: 3px solid #e8d48a; overflow: hidden; flex-shrink: 0;
+}
+.brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+.brand-title { color: #fff; line-height: 1.15; }
+.brand-title .ta { font-size: 2.1rem; font-weight: 800; }
+.brand-title .en { font-size: 1.7rem; font-weight: 700; }
+.nav { display: flex; gap: 28px; justify-content: flex-end; flex-wrap: wrap; }
+.nav a { color: #fff !important; text-decoration: none; font-size: 1.05rem; opacity: .95; }
+.nav a:hover { text-decoration: underline; }
+
+.st-key-topbar [data-testid="stButtonGroup"] button {
+    background: transparent; color: #fff; border-color: rgba(255,255,255,.45);
+}
+.st-key-topbar [data-testid="stBaseButton-segmented_controlActive"] {
+    background: #fff !important; color: var(--green-900) !important;
+}
+
+/* ---------- main area ---------- */
+.st-key-main { padding: 28px 36px 0 36px; }
+
+/* ---------- chat panel ---------- */
+.st-key-chat_panel {
+    background: rgba(251, 248, 239, .96);
+    border: 3px solid var(--green-700);
+    border-radius: 26px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.chat-head { display: flex; gap: 18px; align-items: center; padding-bottom: 14px;
+             border-bottom: 1px solid #e3dccb; }
+.mascot { font-size: 64px; filter: drop-shadow(0 4px 4px rgba(0,0,0,.2)); }
+.chat-head h2 { margin: 0; padding: 0; font-size: 1.7rem; font-weight: 800; color: var(--ink); }
+.chat-head h3 { margin: 2px 0; padding: 0; font-size: 1.45rem; font-weight: 600; color: var(--ink); }
+.chat-head p  { margin: 0; color: var(--muted); font-size: 1rem; }
+
+.st-key-chat_history { background: rgba(255,255,255,.35); border-radius: 14px; }
+
+/* chat action bar: New chat / Clear chat / History */
+.st-key-chat_actions { margin: 10px 0 4px; }
+.st-key-chat_actions button {
+    background: #fff; border: 1.5px solid #cfe3c8; border-radius: 999px;
+    color: var(--green-900); font-weight: 600; min-height: 40px;
+}
+.st-key-chat_actions button p { font-size: .92rem; }
+.st-key-btn_new_chat button { background: var(--green-700); border-color: var(--green-700); color: #fff; }
+.st-key-btn_new_chat button:hover { background: var(--green-900) !important; color: #fff !important; }
+.st-key-chat_actions button:disabled { opacity: .5; }
+
+/* history popover */
+[data-testid="stPopoverBody"] { min-width: 340px; max-height: 460px; overflow-y: auto; }
+[data-testid="stPopoverBody"] .stButton button {
+    justify-content: flex-start; text-align: left; border: none; background: var(--green-50);
+    border-radius: 10px; color: var(--ink);
+}
+[data-testid="stPopoverBody"] .stButton button p {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: .95rem;
+}
+.st-key-delete_all button { background: #fdecea !important; color: #9b2c22 !important; }
+
+/* message bubbles (keyed containers) */
+[class*="st-key-msg-bot"], [class*="st-key-msg-user"] {
+    position: relative; border-radius: 18px; padding: 14px 18px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08); max-width: 82%;
+}
+[class*="st-key-msg-bot"]  { background: #fff; margin-left: 62px; }
+[class*="st-key-msg-user"] { background: var(--green-100); border: 1px solid #c9e0c0;
+                             margin-left: auto; margin-right: 62px; }
+[class*="st-key-msg-bot"]::before, [class*="st-key-msg-user"]::before {
+    position: absolute; top: 4px; width: 46px; height: 46px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 26px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+[class*="st-key-msg-bot"]::before  { content: "🌱"; left: -60px; background: #fff; }
+[class*="st-key-msg-user"]::before { content: "👤"; right: -60px; background: #e9ecef; }
+[class*="st-key-msg-"] p, [class*="st-key-msg-"] li {
+    font-size: var(--fs, 1.05rem) !important; color: var(--ink); line-height: 1.6;
+}
+[class*="st-key-msg-"] [data-testid="stCaptionContainer"] p { font-size: .85rem !important; color: var(--muted); }
+
+.lang-hint { text-align: right; color: var(--muted); font-size: .95rem; margin: 6px 4px 2px; }
+[data-testid="stChatInput"] { border: 2px solid #cfd8cc !important; border-radius: 14px !important; background: #fff !important; }
+[data-testid="stChatInputSubmitButton"] { background: var(--green-700) !important; color: #fff !important;
+                                          border-radius: 10px !important; }
+
+/* ---------- side panels ---------- */
+.st-key-assist_panel, .st-key-quick_panel, .st-key-heritage_panel {
+    border-radius: 22px; padding: 18px 22px; margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.st-key-assist_panel   { background: rgba(251, 246, 230, .97); }
+.st-key-quick_panel    { background: rgba(229, 242, 224, .97); }
+.st-key-heritage_panel { background: rgba(246, 236, 210, .97); }
+.panel-title { font-weight: 800; font-size: 1.4rem; color: var(--ink); margin: 0 0 10px; text-align: center; }
+.st-key-quick_panel .panel-title { text-align: left; }
+
+.st-key-assist_panel .stButton button {
+    width: 100%; min-height: 78px; justify-content: flex-start; text-align: left;
+    background: var(--green-50); border: 1.5px solid #cfe3c8; border-radius: 14px;
+    color: var(--ink); transition: all .15s ease;
+}
+.st-key-assist_panel .stButton button p { white-space: pre-line; font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.st-key-quick_panel .stButton button {
+    background: #fff; border: 1.5px solid #cfe3c8; border-radius: 999px; color: var(--ink);
+    padding: 4px 20px;
+}
+.st-key-quick_panel .stButton button p { font-size: 1.05rem; }
+.stButton button:hover { border-color: var(--green-500) !important; color: var(--green-900) !important;
+                         transform: translateY(-1px); box-shadow: 0 4px 10px rgba(46,139,71,.2); }
+
+/* heritage cards */
+.heritage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.verse {
+    background: linear-gradient(180deg, #fdf6e3, #f4e4bd);
+    border: 2px solid var(--gold-500); outline: 1px solid var(--gold-500); outline-offset: -8px;
+    border-radius: 6px; padding: 16px 18px; text-align: center;
+}
+.verse h4 { margin: 0; padding: 0; font-size: 1.35rem; font-weight: 800; color: #3b2a0c; }
+.verse .ref { font-size: .85rem; color: #6b5420; margin: 2px 0 8px; }
+.verse .lines { font-weight: 600; color: #2c2210; line-height: 1.6; font-size: .98rem; }
+
+/* footer */
+.footer-note {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 99;
+    background: #4a4632; color: #f3efe0; text-align: center; font-size: .85rem; padding: 8px 12px;
+}
+
+@media (max-width: 900px) {
+    .st-key-topbar, .st-key-main { padding-left: 14px; padding-right: 14px; }
+    .heritage-grid { grid-template-columns: 1fr; }
+    .brand-title .ta { font-size: 1.5rem; } .brand-title .en { font-size: 1.2rem; }
+}
